@@ -1,1 +1,9 @@
 cargo new hello-cargo --vcs none
+
+cargo build
+
+cargo run
+
+cargo check
+
+cargo build --release
