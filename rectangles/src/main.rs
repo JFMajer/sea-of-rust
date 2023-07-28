@@ -20,6 +20,7 @@ fn main() {
 
     println!("rect1 is a square? {}", rect1.am_i_square());
     println!("square1 is a square? {}", square1.am_i_square());
+    println!("square1 is a square? {}", Rectangle::am_i_square(&square1)); // different way of calling method
 }
 
 struct Rectangle {
