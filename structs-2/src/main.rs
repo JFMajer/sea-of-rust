@@ -19,6 +19,9 @@ fn main() {
     // println!("Rectangle struct is {:?}", rect2); //again won't compile, the trait `Debug` is not implemented for `Rectangle`
     println!("Rectangle struct is {:?}", rect2); //works because of added #[derive(Debug)]
     println!("Rectangle struct is {:#?}", rect2); // prettier output
+
+    // using methods
+    println!("Area of rectangle with height {} and width {} equals to {}.(Calculated using method)", rect2.height, rect2. width, rect2.area());
 }
 
 fn rectangle_area(height: u32, width: u32) -> u32 {
@@ -34,6 +37,13 @@ fn area_tup(dimensions: (u32, u32)) -> u32 {
 struct Rectangle {
     height: u32,
     width: u32
+}
+
+// function within context of Rectangle
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
 }
 
 fn area_struct(rectangle: &Rectangle) -> u32 {
