@@ -1,5 +1,5 @@
 fn main() {
-    let rect1 = Rectangle {
+    let mut rect1 = Rectangle {
         width: 30,
         height: 50,
     };
@@ -21,6 +21,12 @@ fn main() {
     println!("rect1 is a square? {}", rect1.am_i_square());
     println!("square1 is a square? {}", square1.am_i_square());
     println!("square1 is a square? {}", Rectangle::am_i_square(&square1)); // different way of calling method
+
+    println!("Width of rect1 is {}", rect1.width);
+    rect1.set_width(31);
+    println!("Width of rect1 is {}", rect1.width);
+    rect1.set_width(0);
+
 }
 
 struct Rectangle {
@@ -42,5 +48,12 @@ impl Rectangle {
 
     fn am_i_square(&self) -> bool {
         self.width == self.height
+    }
+
+    fn set_width(&mut self, width: u32) {
+        if width < 1 {
+            println!("Side dimension needs to more than 0");
+        }
+        self.width = width;
     }
 }
